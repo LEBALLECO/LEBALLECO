@@ -110,6 +110,45 @@ header.scrolled {
     box-shadow: var(--shadow-md);
 }
 
+/* Section Spacing Refined */
+section {
+    padding: 100px 0;
+}
+
+.bg-pattern {
+    background-image: radial-gradient(var(--border-light) 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    z-index: 1000;
+    font-size: 1.25rem;
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
+    background: var(--accent-color);
+}
+
+#back-to-top.show {
+    display: flex;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
