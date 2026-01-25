@@ -136,28 +136,57 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* Pro Aesthetics Upgrade */
+
+/* Hero Typography - Massive & Bold */
+.hero h1 {
+    font-size: 5.5rem;
+    /* Larger impact */
+    margin-bottom: 24px;
+    line-height: 1.1;
+    color: var(--text-primary);
+    letter-spacing: -0.04em;
+    /* Tighter tracking */
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+    /* Subtle 3D edge */
+}
+
+/* Hero Parallax */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background: url('../assets/images/hero_professional.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax Effect */
+    color: var(--text-primary);
+    text-align: center;
+    position: relative;
+    padding-top: 80px;
+}
+
+/* Pro Buttons - Invert on Hover */
 .cta-button {
     background-color: black;
     color: white;
-    padding: 15px 30px;
-    /* Big click area */
-    border: none;
+    padding: 16px 36px;
+    border: 2px solid black;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 800;
     cursor: pointer;
     border-radius: 0;
-    /* Square corners */
-    transition: background-color 0.3s;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: inline-block;
-    /* Ensure padding works */
+    letter-spacing: 1px;
 }
 
 .cta-button:hover {
-    background-color: #333;
-    /* Dark Grey */
-    transform: translateY(-2px);
-    /* Moves up slightly */
-    color: white;
+    background-color: white;
+    color: black;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .menu-toggle {
@@ -168,19 +197,6 @@ nav a:hover {
 }
 
 /* Hero Section */
-.hero {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    background: url('../assets/images/hero_professional.png');
-    background-size: cover;
-    background-position: center;
-    color: var(--text-primary);
-    text-align: center;
-    position: relative;
-    padding-top: 80px;
-}
-
 .hero::before {
     content: '';
     position: absolute;
@@ -202,14 +218,6 @@ nav a:hover {
     backdrop-filter: blur(8px);
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-.hero h1 {
-    font-size: 4.5rem;
-    margin-bottom: 24px;
-    line-height: 1.1;
-    color: var(--text-primary);
-    letter-spacing: -0.03em;
 }
 
 .hero p {
@@ -250,14 +258,49 @@ h2 {
     /* Optional: Slight curve on corners */
 }
 
-/* Footer */
+/* Statement Footer */
 footer {
-    background-color: #111;
-    /* Almost black */
+    background-color: #050505;
+    /* Deepest black */
     color: white;
-    padding: 40px;
+    padding: 80px 0;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 80px;
+    border-top: 10px solid white;
+    /* Bold Separation */
+}
+
+.newsletter input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #555;
+    color: white;
+    padding: 15px 0;
+    width: 100%;
+    font-size: 1.1rem;
+    border-radius: 0;
+    transition: border-color 0.3s;
+}
+
+.newsletter input:focus {
+    border-bottom-color: white;
+    outline: none;
+}
+
+.newsletter button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.newsletter button:hover {
+    background: #ccc;
 }
 
 .footer-grid {
@@ -277,12 +320,14 @@ footer {
     /* Inverts colors: White BG -> Black, Black Text -> White */
 }
 
+/* Footer Links Pro */
 .footer-links h4 {
-    margin-bottom: 32px;
-    font-size: 1rem;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+    display: inline-block;
 }
 
 .footer-links ul li {
@@ -290,19 +335,28 @@ footer {
 }
 
 .footer-links ul li a {
-    color: #94a3b8;
+    color: #888;
+    font-size: 1rem;
+    transition: all 0.3s;
+    display: block;
+    /* Make whole area clickable */
+    padding: 5px 0;
 }
 
 .footer-links ul li a:hover {
-    color: #ffffff;
+    color: white;
+    transform: translateX(5px);
+    /* Move right on hover */
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #222;
     padding-top: 40px;
-    text-align: center;
-    color: #64748b;
-    font-size: 0.9rem;
+    margin-top: 60px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #444;
 }
 
 /* Animations */
