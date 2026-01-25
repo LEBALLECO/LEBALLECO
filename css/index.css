@@ -1036,11 +1036,34 @@ footer h4 {
         text-align: center;
     }
 
-    /* Fix Horizontal Scrolling Card Alignment */
+    /* Horizontal Scroll for Services & Testimonials */
+    .services-grid,
+    .testimonials-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding-bottom: 20px;
+        /* Space for scrollbar/touch */
+        -webkit-overflow-scrolling: touch;
+        margin-left: -24px;
+        /* Offset container padding (24px from .container) */
+        margin-right: -24px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    /* Scroll Snap Cards */
     .service-card,
-    .testimonials-grid>div {
+    .testimonials-grid>div,
+    .testimonial-card {
+        min-width: 85vw;
+        /* Show most of the card */
+        max-width: 85vw;
+        scroll-snap-align: center;
         margin-left: 0;
         margin-right: 0;
+        flex-shrink: 0;
     }
 
     /* Mobile Typography Fixes */
