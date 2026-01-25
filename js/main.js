@@ -3,23 +3,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
 
-    // Create mobile menu toggle if not already there
-    if (!document.querySelector('.menu-toggle')) {
-        const menuToggle = document.createElement('div');
-        menuToggle.className = 'menu-toggle';
-        menuToggle.innerHTML = '<span></span><span></span><span></span>';
-        document.querySelector('nav').appendChild(menuToggle);
+    // Sticky Header Logic
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
 
-        const navLinks = document.querySelector('.nav-links');
+    // Mobile Menu Toggle logic (already exists in CSS for basic hiding, but let's ensure functionality)
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-        // Mobile Menu Toggle
+    if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             menuToggle.classList.toggle('active');
         });
 
         // Close menu on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
+        navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 menuToggle.classList.remove('active');
@@ -27,18 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sticky Header and Shadow
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('sticky');
-            header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.classList.remove('sticky');
-            header.style.boxShadow = 'var(--shadow-sm)';
-        }
-    });
-
-    // Modern Scroll Reveal using IntersectionObserver
+    // Scroll Reveal Animation
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -48,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Only reveal once
             }
         });
     }, observerOptions);
@@ -56,20 +50,35 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href.startsWith('#') && href.length > 1) {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+    // Simple Lightbox for Portfolio
+    const portfolioItems = document.querySelectorAll('.portfolio-item a');
+    if (portfolioItems.length > 0) {
+        const lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.style.cssText = `
+            position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center;
+            cursor: pointer; padding: 40px;
+        `;
+        const img = document.createElement('img');
+        img.style.cssText = 'max-width: 90%; max-height: 90%; border-radius: 8px; box-shadow: 0 0 30px rgba(0,0,0,0.5);';
+        lightbox.appendChild(img);
+        document.body.appendChild(lightbox);
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (item.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    const imgSrc = item.closest('.portfolio-item').querySelector('img').src;
+                    img.src = imgSrc;
+                    lightbox.style.display = 'flex';
                 }
-            }
+            });
         });
-    });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+    }
+});
 
