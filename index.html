@@ -29,8 +29,21 @@
     <meta property="twitter:image" content="https://leballeco.github.io/logo/logo-final.png">
 
     <link rel="canonical" href="https://leballeco.github.io/">
+
+    <!-- Performance Optimizations -->
+    <link rel="preload" as="image" href="assets/images/hero_professional.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </noscript>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FZ4ELM7R2"></script>
@@ -110,7 +123,7 @@
             <div class="container">
                 <div class="about-preview-grid">
                     <div class="about-image">
-                        <img src="assets/images/about.png" alt="About LEBALLECO"
+                        <img src="assets/images/about.png" alt="About LEBALLECO" loading="lazy"
                             style="border-radius: var(--border-radius); box-shadow: var(--shadow-md);">
                     </div>
                     <div class="about-text">
@@ -227,7 +240,7 @@
             <div class="footer-grid">
                 <div class="footer-info">
                     <a href="index.html" class="footer-logo">
-                        <img src="logo/logo-final.png" alt="LEBALLECO Logo">
+                        <img src="logo/logo-final.png" alt="LEBALLECO Logo" loading="lazy">
                     </a>
                     <p style="opacity: 0.7; margin-top: 15px;">
                         Transforming online presence with expert web design and branding strategies that drive results.
