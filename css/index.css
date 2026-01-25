@@ -273,7 +273,8 @@ footer {
     height: 80px;
     width: auto;
     margin-bottom: 24px;
-    filter: brightness(0) invert(1);
+    filter: invert(1);
+    /* Inverts colors: White BG -> Black, Black Text -> White */
 }
 
 .footer-links h4 {
