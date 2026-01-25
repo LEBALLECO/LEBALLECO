@@ -49,7 +49,14 @@ body {
     background-color: var(--bg-white);
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
+    width: 100%;
     -webkit-font-smoothing: antialiased;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 h1,
@@ -672,6 +679,18 @@ footer h4 {
     border-bottom-color: var(--secondary-color);
 }
 
+.service-maintenance:hover {
+    border-bottom-color: var(--secondary-color);
+}
+
+/* About Preview Grid - Desktop */
+.about-preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
 /* Mobile Responsive Enhancements */
 @media (max-width: 992px) {
     header {
@@ -798,40 +817,109 @@ footer h4 {
         content: '\f078';
         font-family: 'Font Awesome 5 Free';
         font-weight: 900;
-        font-size: 0.8rem;
         transition: transform 0.3s;
     }
 
-    .footer-links.active h4::after {
-        transform: rotate(180deg);
+    /* Fix About Us Overflow on Mobile */
+    .about-preview-grid {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 40px;
+        text-align: center;
     }
 
-    .footer-links ul {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
-
-    .footer-links.active ul {
-        max-height: 500px;
-        padding-bottom: 20px;
-    }
-
-    .footer-info {
-        margin-bottom: 40px;
-    }
-
-    .newsletter {
-        padding: 40px 20px 0;
-    }
-
-    .newsletter form {
-        flex-direction: column;
-    }
-
-    .newsletter button {
+    .about-image {
         width: 100%;
+        max-width: 100%;
     }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-text .cta-button {
+        width: auto;
+        display: inline-block;
+    }
+
+    /* Center Footer on Mobile */
+    .footer-info,
+    .newsletter {
+        text-align: center;
+    }
+
+    .social-icons-footer {
+        justify-content: center;
+    }
+
+    .newsletter input {
+        text-align: center;
+    }
+
+    /* Fix Horizontal Scrolling Card Alignment */
+    .service-card,
+    .testimonials-grid>div {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Mobile Typography Fixes */
+    .hero h1 {
+        font-size: 2.8rem;
+        word-wrap: break-word;
+        /* Prevent long words from overflowing */
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+        /* Slightly tighter padding on very small screens */
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+.footer-links.active h4::after {
+    transform: rotate(180deg);
+}
+
+.footer-links ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.footer-links.active ul {
+    max-height: 500px;
+    padding-bottom: 20px;
+}
+
+.footer-info {
+    margin-bottom: 40px;
+}
+
+.newsletter {
+    padding: 40px 20px 0;
+}
+
+.newsletter form {
+    flex-direction: column;
+}
+
+.newsletter button {
+    width: 100%;
+}
 }
 
 @media (max-width: 768px) {
