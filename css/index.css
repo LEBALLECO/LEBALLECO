@@ -320,14 +320,22 @@ footer {
     /* Inverts colors: White BG -> Black, Black Text -> White */
 }
 
+/* Page Hero - Force White Text */
+.page-hero h1,
+.page-hero p {
+    color: #ffffff !important;
+}
+
 /* Footer Links Pro */
 .footer-links h4 {
     font-size: 1.2rem;
     letter-spacing: 2px;
     margin-bottom: 40px;
-    border-bottom: 1px solid #333;
+    border-bottom: 2px solid white;
+    /* Thicker, clearer */
     padding-bottom: 15px;
     display: inline-block;
+    color: #ffffff;
 }
 
 .footer-links ul li {
@@ -335,7 +343,8 @@ footer {
 }
 
 .footer-links ul li a {
-    color: #888;
+    color: #e2e2e2;
+    /* Much lighter grey for visibility */
     font-size: 1rem;
     transition: all 0.3s;
     display: block;
@@ -347,16 +356,19 @@ footer {
     color: white;
     transform: translateX(5px);
     /* Move right on hover */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .footer-bottom {
-    border-top: 1px solid #222;
+    border-top: 1px solid #333;
     padding-top: 40px;
     margin-top: 60px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    /* Bigger */
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #444;
+    color: #888;
+    /* Visible grey */
 }
 
 /* Animations */
