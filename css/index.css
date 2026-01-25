@@ -217,12 +217,18 @@ nav a.active {
     background: url('../assets/images/hero_professional.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     /* Parallax Effect */
+    background-attachment: fixed;
     color: var(--text-primary);
-    text-align: center;
     position: relative;
     padding-top: 80px;
+}
+
+@media (max-width: 992px) {
+    .hero {
+        background-attachment: scroll;
+        /* Performance fix for mobile */
+    }
 }
 
 /* Pro Buttons - Invert on Hover */
@@ -419,6 +425,35 @@ footer {
 
 .newsletter button:hover {
     background: #ccc;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 50px;
+    border: 1px solid #444;
+    background: #222;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.newsletter-form input:focus {
+    border-color: var(--primary-color);
+}
+
+.newsletter-form button {
+    padding: 12px 24px;
+    font-size: 0.8rem;
+    border-radius: 50px;
+    white-space: nowrap;
 }
 
 .footer-grid {
@@ -650,6 +685,138 @@ footer h4 {
     margin-top: 60px;
 }
 
+/* Testimonial Card Styles (Refactored) */
+.testimonial-card {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card.accent {
+    border-left-color: var(--accent-color);
+}
+
+.testimonial-card.secondary {
+    border-left-color: var(--secondary-color);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-icon {
+    font-size: 2rem;
+    opacity: 0.1;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: inherit;
+    /* Inherits from parent border color logic in HTML or specific classes */
+}
+
+.testimonial-card.accent .testimonial-icon {
+    color: var(--accent-color);
+}
+
+.testimonial-card.secondary .testimonial-icon {
+    color: var(--secondary-color);
+}
+
+.testimonial-card .testimonial-icon {
+    color: var(--primary-color);
+}
+
+/* Default */
+
+.testimonial-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    background: var(--bg-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.testimonial-card .author-avatar {
+    color: var(--primary-color);
+}
+
+.testimonial-card.accent .author-avatar {
+    color: var(--accent-color);
+}
+
+.testimonial-card.secondary .author-avatar {
+    color: var(--secondary-color);
+}
+
+.author-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.author-info p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Scroll Hints */
+.horizontal-scroll-hint {
+    display: none;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 10px;
+    animation: bounceRight 2s infinite;
+}
+
+@keyframes bounceRight {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(0);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    60% {
+        transform: translateX(3px);
+    }
+}
+
+@media (max-width: 992px) {
+    .horizontal-scroll-hint {
+        display: block;
+    }
+}
+
 .service-card .price {
     font-size: 1.25rem;
     font-weight: 700;
@@ -795,6 +962,19 @@ footer h4 {
         grid-template-columns: 1fr;
         gap: 0;
         text-align: center;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+        text-align: center;
+    }
+
+    .newsletter-form button {
+        width: 100%;
     }
 
     .footer-links {

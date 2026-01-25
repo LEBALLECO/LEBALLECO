@@ -4,29 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="logo/Logo final.png">
-    <title>LEBALLECO | Premium Streetwear</title>
+    <link rel="icon" type="image/png" href="logo/logo-final.png">
+    <title>LEBALLECO | Web Design & Branding Agency</title>
     <meta name="description"
-        content="LEBALLECO creates custom, high-performance websites and memorable brand identities that help your business thrive in the digital world. Professional web design in Singapore.">
+        content="LEBALLECO creates custom, high-performance websites and memorable brand identities that help your business thrive. Professional web design and digital strategy in Singapore.">
     <meta name="keywords"
-        content="web design, branding, ecommerce, website maintenance, Singapore web agency, LEBALLECO">
+        content="web design, branding, ecommerce, website maintenance, Singapore web agency, LEBALLECO, digital strategy">
     <meta name="google-site-verification" content="q_dT_MmI66ATg8kpmnEzaNGKqTiGNwvAYcp8M-ECB70" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://leballeco.com/">
-    <meta property="og:title" content="LEBALLECO | Designing the Future, Branding with Purpose">
-    <meta property="og:description" content="Custom websites and branding built for your business success.">
-    <meta property="og:image" content="logo/Logo final.png">
+    <meta property="og:url" content="https://pingping-creator.github.io/LEBALLECO/">
+    <meta property="og:title" content="LEBALLECO | Use Your Vision, Build Your Brand">
+    <meta property="og:description"
+        content="Custom websites and branding built for your business success. Pay only when 100% satisfied.">
+    <meta property="og:image" content="https://pingping-creator.github.io/LEBALLECO/logo/logo-final.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://leballeco.com/">
-    <meta property="twitter:title" content="LEBALLECO | Designing the Future, Branding with Purpose">
-    <meta property="twitter:description" content="Custom websites and branding built for your business success.">
-    <meta property="twitter:image" content="logo/Logo final.png">
+    <meta property="twitter:url" content="https://pingping-creator.github.io/LEBALLECO/">
+    <meta property="twitter:title" content="LEBALLECO | Use Your Vision, Build Your Brand">
+    <meta property="twitter:description"
+        content="Custom websites and branding built for your business success. Pay only when 100% satisfied.">
+    <meta property="twitter:image" content="https://pingping-creator.github.io/LEBALLECO/logo/logo-final.png">
 
-    <link rel="canonical" href="https://leballeco.com/">
+    <link rel="canonical" href="https://pingping-creator.github.io/LEBALLECO/">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -38,6 +40,26 @@
         gtag('js', new Date());
         gtag('config', 'G-0FZ4ELM7R2');
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "LEBALLECO",
+      "image": "https://pingping-creator.github.io/LEBALLECO/logo/logo-final.png",
+      "url": "https://pingping-creator.github.io/LEBALLECO/",
+      "telephone": "",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      },
+      "description": "LEBALLECO creates custom, high-performance websites and memorable brand identities. Professional web design and digital strategy in Singapore.",
+      "sameAs": [
+        "https://pingping-creator.github.io/LEBALLECO/"
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -46,9 +68,11 @@
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
-                    <img src="logo/Logo final.png" alt="LEBALLECO Logo">
+                    <img src="logo/logo-final.png" alt="LEBALLECO Logo">
                 </a>
-                <div class="menu-toggle"><span></span><span></span><span></span></div>
+                <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
@@ -135,6 +159,7 @@
                             Plans</a>
                     </div>
                 </div>
+                <div class="horizontal-scroll-hint"><i class="fas fa-chevron-right"></i> Swipe for more</div>
             </div>
         </section>
 
@@ -147,74 +172,52 @@
                 </div>
                 <div class="testimonials-grid">
                     <!-- Testimonial 1 -->
-                    <div
-                        style="background: white; padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); position: relative; border-left: 5px solid var(--primary-color);">
-                        <i class="fas fa-quote-left"
-                            style="font-size: 2rem; color: var(--primary-color); opacity: 0.1; position: absolute; top: 20px; right: 20px;"></i>
-                        <p
-                            style="font-size: 1.1rem; font-style: italic; margin-bottom: 25px; line-height: 1.8; color: var(--text-secondary);">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left testimonial-icon"></i>
+                        <p class="testimonial-text">
                             "LEBALLECO delivered an amazing website that has transformed our online presence! The team
                             was professional, creative, and exceeded our expectations."
                         </p>
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <div
-                                style="width: 50px; height: 50px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-weight: bold; font-size: 1.2rem;">
-                                AC
-                            </div>
-                            <div>
-                                <h4 style="margin: 0; font-size: 1rem; font-family: 'Montserrat', sans-serif;">ABC Corp
-                                </h4>
-                                <p style="margin: 0; color: var(--text-muted); font-size: 0.85rem;">Marketing Director
-                                </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AC</div>
+                            <div class="author-info">
+                                <h4>ABC Corp</h4>
+                                <p>Marketing Director</p>
                             </div>
                         </div>
                     </div>
                     <!-- Testimonial 2 -->
-                    <div <div
-                        style="background: white; padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); position: relative; border-left: 5px solid var(--accent-color);">
-                        <i class="fas fa-quote-left"
-                            style="font-size: 2rem; color: var(--accent-color); opacity: 0.1; position: absolute; top: 20px; right: 20px;"></i>
-                        <p
-                            style="font-size: 1.1rem; font-style: italic; margin-bottom: 25px; line-height: 1.8; color: var(--text-secondary);">
+                    <div class="testimonial-card accent">
+                        <i class="fas fa-quote-left testimonial-icon"></i>
+                        <p class="testimonial-text">
                             "LEBALLECO understood our vision perfectly. The new branding brought a fresh energy to our
                             company."
                         </p>
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <div
-                                style="width: 50px; height: 50px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-color); font-weight: bold; font-size: 1.2rem;">
-                                TF
-                            </div>
-                            <div>
-                                <h4 style="margin: 0; font-size: 1rem; font-family: 'Montserrat', sans-serif;">TechFlow
-                                </h4>
-                                <p style="margin: 0; color: var(--text-muted); font-size: 0.85rem;">CEO</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">TF</div>
+                            <div class="author-info">
+                                <h4>TechFlow</h4>
+                                <p>CEO</p>
                             </div>
                         </div>
                     </div>
                     <!-- Testimonial 3 -->
-                    <div
-                        style="background: white; padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); position: relative; border-left: 5px solid var(--secondary-color);">
-                        <i class="fas fa-quote-left"
-                            style="font-size: 2rem; color: var(--secondary-color); opacity: 0.1; position: absolute; top: 20px; right: 20px;"></i>
-                        <p
-                            style="font-size: 1.1rem; font-style: italic; margin-bottom: 25px; line-height: 1.8; color: var(--text-secondary);">
+                    <div class="testimonial-card secondary">
+                        <i class="fas fa-quote-left testimonial-icon"></i>
+                        <p class="testimonial-text">
                             "Their maintenance program gives us peace of mind. Fast updates and zero downtime since we
                             switched."
                         </p>
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <div
-                                style="width: 50px; height: 50px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--secondary-color); font-weight: bold; font-size: 1.2rem;">
-                                GS
-                            </div>
-                            <div>
-                                <h4 style="margin: 0; font-size: 1rem; font-family: 'Montserrat', sans-serif;">GreenShip
-                                </h4>
-                                <p style="margin: 0; color: var(--text-muted); font-size: 0.85rem;">Operations Manager
-                                </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">GS</div>
+                            <div class="author-info">
+                                <h4>GreenShip</h4>
+                                <p>Operations Manager</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="horizontal-scroll-hint"><i class="fas fa-chevron-right"></i> Swipe for more</div>
             </div>
         </section>
     </main>
@@ -224,7 +227,7 @@
             <div class="footer-grid">
                 <div class="footer-info">
                     <a href="index.html" class="footer-logo">
-                        <img src="logo/Logo final.png" alt="LEBALLECO Logo">
+                        <img src="logo/logo-final.png" alt="LEBALLECO Logo">
                     </a>
                     <p style="opacity: 0.7; margin-top: 15px;">
                         Transforming online presence with expert web design and branding strategies that drive results.
@@ -263,7 +266,10 @@
                         Grow your business with the latest digital strategies delivered to your inbox.
                     </p>
                     <form id="newsletter-form" style="display: flex; gap: 10px;">
-                        <input type="email" placeholder="Email" required
+                        <label for="newsletter-email" class="sr-only"
+                            style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Email
+                            Address</label>
+                        <input type="email" id="newsletter-email" placeholder="Email" required
                             style="flex: 1; padding: 12px; border-radius: 50px; border: 1px solid #444; background: #222; color: white;">
                         <button type="submit" class="cta-button"
                             style="padding: 12px 24px; font-size: 0.8rem; border-radius: 50px;">Join</button>
