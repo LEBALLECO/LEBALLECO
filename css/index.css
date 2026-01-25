@@ -400,6 +400,8 @@ footer {
 
 /* Hero Staggered Entrance */
 .hero h1 {
+    opacity: 0;
+    /* Safety: Ensure hidden before animation starts */
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
