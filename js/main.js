@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Contact Form Handler
-    // Contact Form Handler
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
