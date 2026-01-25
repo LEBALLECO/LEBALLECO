@@ -122,4 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
             contactForm.reset();
         });
     }
+
+    // Footer Accordion for Mobile
+    const footerHeaders = document.querySelectorAll('.footer-links h4');
+    footerHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            if (window.innerWidth <= 992) {
+                header.parentElement.classList.toggle('active');
+            }
+        });
+    });
 });

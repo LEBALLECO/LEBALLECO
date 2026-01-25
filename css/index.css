@@ -4,13 +4,13 @@
 
 :root {
     /* Updated Brand Palette */
-    --primary-color: #4CAF50;
-    /* Green */
-    --primary-dark: #388E3C;
-    --secondary-color: #333333;
-    /* Dark Gray */
-    --accent-color: #2196F3;
-    /* Blue - for contrast */
+    --primary-color: #34989E;
+    /* Brand Teal */
+    --primary-dark: #2E8B92;
+    --secondary-color: #1A1A1A;
+    /* Darker Professional Gray */
+    --accent-color: #65D8F7;
+    /* Light Blue */
 
     /* Neutral Scale */
     --bg-white: #FFFFFF;
@@ -375,13 +375,10 @@ h2 {
 /* Statement Footer */
 footer {
     background-color: #050505;
-    /* Deepest black */
     color: white;
-    padding: 80px 0;
-    text-align: center;
+    padding: 80px 0 40px;
     margin-top: 80px;
-    border-top: 10px solid white;
-    /* Bold Separation */
+    border-top: 5px solid var(--primary-color);
 }
 
 .newsletter input {
@@ -420,24 +417,58 @@ footer {
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 2fr;
-    gap: 60px;
-    margin-bottom: 80px;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-info {
     text-align: left;
-    /* Keep left alignment for lists */
+    margin-bottom: 20px;
 }
 
 .footer-logo img {
     height: 80px;
     width: auto;
-    margin-bottom: 24px;
-    filter: invert(1);
-    /* Inverts colors: White BG -> Black, Black Text -> White */
+    margin-bottom: 20px;
 }
 
-/* Page Hero - Force White Text */
-.page-hero h1,
-.page-hero p {
-    color: #ffffff !important;
+.newsletter {
+    grid-column: span 1;
+    text-align: left;
+    margin: 0;
+}
+
+.social-icons-footer {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+.social-icons-footer a {
+    color: var(--text-muted);
+}
+
+.social-icons-footer a:hover {
+    color: var(--primary-color);
+}
+
+.footer-links li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.footer-links.active li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (min-width: 993px) {
+    .footer-links li {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 /* Footer Headers (General) */
@@ -450,8 +481,7 @@ footer h4 {
     font-size: 1.2rem;
     letter-spacing: 2px;
     margin-bottom: 40px;
-    border-bottom: 2px solid white;
-    /* Thicker, clearer */
+    /* Removed white underline */
     padding-bottom: 15px;
     display: inline-block;
     color: #ffffff;
@@ -606,6 +636,13 @@ footer h4 {
     font-size: 1rem;
 }
 
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
 .service-card .price {
     font-size: 1.25rem;
     font-weight: 700;
@@ -641,8 +678,19 @@ footer h4 {
         padding: 10px 0;
     }
 
+    header .container nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+    }
+
     .logo img {
-        height: 60px;
+        height: 50px;
     }
 
     .menu-toggle {
@@ -683,6 +731,8 @@ footer h4 {
         opacity: 0;
         overflow: hidden;
         background: white;
+        display: flex;
+        /* Ensure flex for layout when visible */
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -724,8 +774,55 @@ footer h4 {
 
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 0;
         text-align: center;
+    }
+
+    .footer-links {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0;
+    }
+
+    .footer-links h4 {
+        width: 100%;
+        margin-bottom: 0;
+        padding: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: none;
+    }
+
+    .footer-links h4::after {
+        content: '\f078';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 0.8rem;
+        transition: transform 0.3s;
+    }
+
+    .footer-links.active h4::after {
+        transform: rotate(180deg);
+    }
+
+    .footer-links ul {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+
+    .footer-links.active ul {
+        max-height: 500px;
+        padding-bottom: 20px;
+    }
+
+    .footer-info {
+        margin-bottom: 40px;
+    }
+
+    .newsletter {
+        padding: 40px 20px 0;
     }
 
     .newsletter form {
@@ -751,8 +848,30 @@ footer h4 {
     }
 
     .services-grid,
+    .testimonials-grid {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 20px;
+        padding-bottom: 20px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .portfolio-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .service-card,
+    .testimonials-grid>div {
+        flex: 0 0 280px;
+        scroll-snap-align: start;
     }
 
     .contact-grid {
@@ -878,21 +997,11 @@ footer h4 {
     }
 
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        padding: 40px 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        z-index: 999;
+        /* Styles already handled in previous 992px block */
     }
 
     .nav-links.active {
-        display: flex !important;
-        animation: fadeIn 0.3s ease;
+        /* Styles already handled in previous 992px block */
     }
 
     .nav-links li {
@@ -919,7 +1028,7 @@ footer h4 {
     }
 
     .footer-links h4 {
-        border-bottom: 2px solid white;
+        /* Removed border logic */
         display: inline-block;
     }
 
