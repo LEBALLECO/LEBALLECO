@@ -106,7 +106,10 @@ nav {
 }
 
 .logo img {
-    height: 38px;
+    height: 90px;
+    width: auto;
+    filter: none;
+    /* Ensure default logo colors are used */
 }
 
 .nav-links {
@@ -267,7 +270,8 @@ footer {
 }
 
 .footer-logo img {
-    height: 32px;
+    height: 80px;
+    width: auto;
     margin-bottom: 24px;
     filter: brightness(0) invert(1);
 }
@@ -322,6 +326,7 @@ footer {
         gap: 40px;
     }
 }
+
 /* Contact Page Styles */
 .contact-grid {
     display: grid;
@@ -353,7 +358,7 @@ footer {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ddd;
-    border-radius: 8px; /* Keeping rounded for inputs or square? User said buttons square. Inputs usually better slightly rounded or square. I'll keep user's original mix or set to 0. Let's keep 8px for now but if user wants full streetwear, maybe 0. */
+    border-radius: 8px;
     outline: none;
     font-family: inherit;
 }
@@ -396,7 +401,8 @@ footer {
 
 .blog-card img {
     width: 100%;
-    height: 250px; /* Blog images might differ from product images */
+    height: 250px;
+    /* Blog images might differ from product images */
     object-fit: cover;
 }
 
