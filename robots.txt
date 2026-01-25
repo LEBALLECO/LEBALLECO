@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pingping-creator.github.io/LEBALLECO/sitemap.xml
+Sitemap: https://leballeco.github.io/sitemap.xml
