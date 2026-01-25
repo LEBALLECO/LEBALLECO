@@ -3,20 +3,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap');
 
 :root {
-    --primary-color: #0052FF;
-    --primary-gradient: linear-gradient(135deg, #0052FF 0%, #00C2FF 100%);
-    --secondary-color: #00C2FF;
-    --text-dark: #1A1A1A;
-    --text-light: #F8F9FA;
-    --text-muted: #6C757D;
+    --primary-color: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary-color: #ec4899;
+    --accent-color: #06b6d4;
+    --primary-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    --text-dark: #0f172a;
+    --text-light: #f8fafc;
+    --text-muted: #64748b;
     --bg-white: #FFFFFF;
-    --bg-light: #F8F9FA;
-    --glass-bg: rgba(255, 255, 255, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
-    --border-radius: 12px;
+    --bg-light: #f8fafc;
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --border-radius: 16px;
 }
 
 * {
@@ -312,7 +314,7 @@ section {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
 
     to {
@@ -321,12 +323,37 @@ section {
     }
 }
 
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
 .reveal {
     opacity: 0;
-    transition: all 1s ease-out;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .reveal.active {
     opacity: 1;
-    animation: fadeInUp 1s ease-out forwards;
+    transform: translateY(0);
+}
+
+.hero-content h1 {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-content p {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.hero-content .cta-button {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
 }

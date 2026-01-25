@@ -52,12 +52,24 @@
 
     <main>
         <section class="hero">
-            <div class="container">
+            <div class="container" style="position: relative; z-index: 2;">
                 <div class="hero-content">
-                    <h1>Designing the Future, Branding with Purpose</h1>
-                    <p>We create custom websites and brands that help businesses thrive in the digital world.</p>
-                    <a href="contact.html" class="cta-button">Get Started</a>
+                    <h1>Build Your Digital Future Today</h1>
+                    <p>We create stunning, high-performance websites that drive results and elevate your brand to new
+                        heights.</p>
+                    <div style="display: flex; gap: 20px; justify-content: center;">
+                        <a href="contact.html" class="cta-button">Start Your Project</a>
+                        <a href="portfolio.html" class="cta-button"
+                            style="background: transparent; border: 2px solid white;">View Portfolio</a>
+                    </div>
                 </div>
+            </div>
+            <!-- Floating Elements from Modern Template -->
+            <div
+                style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: rgba(255,255,255,0.1); border-radius: 50%; animation: float 6s ease-in-out infinite;">
+            </div>
+            <div
+                style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.05); border-radius: 50%; animation: float 8s ease-in-out infinite;">
             </div>
         </section>
 
@@ -86,34 +98,34 @@
                     <p>Comprehensive solutions tailored to your brand's digital success.</p>
                 </div>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                    <div
-                        style="background: white; padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); text-align: center; transition: var(--transition);">
+                    <div class="service-card reveal"
+                        style="background: white; padding: 50px 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); text-align: center; transition: var(--transition); border-top: 5px solid transparent; position: relative; overflow: hidden;">
                         <i class="fas fa-laptop-code"
                             style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;"></i>
                         <h3 style="margin-bottom: 15px;">Web Design</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 20px;">Beautiful, responsive websites built
-                            for your business.</p>
-                        <a href="services.html" style="color: var(--primary-color); font-weight: 600;">Explore More
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Beautiful, modern designs that
+                            captivate your audience and reflect your brand identity perfectly.</p>
+                        <a href="services.html" style="color: var(--primary-color); font-weight: 700;">Explore More
                             &rarr;</a>
                     </div>
-                    <div
-                        style="background: white; padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); text-align: center; transition: var(--transition);">
-                        <i class="fas fa-palette"
+                    <div class="service-card reveal"
+                        style="background: white; padding: 50px 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); text-align: center; transition: var(--transition); border-top: 5px solid transparent; position: relative; overflow: hidden;">
+                        <i class="fas fa-rocket"
                             style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;"></i>
-                        <h3 style="margin-bottom: 15px;">Branding</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 20px;">Create a memorable identity with
-                            custom logos, colors, and typography.</p>
-                        <a href="services.html" style="color: var(--primary-color); font-weight: 600;">Explore More
+                        <h3 style="margin-bottom: 15px;">Web Development</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Fast, responsive, and scalable
+                            websites built with the latest technologies and best practices.</p>
+                        <a href="services.html" style="color: var(--primary-color); font-weight: 700;">Explore More
                             &rarr;</a>
                     </div>
-                    <div
-                        style="background: white; padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); text-align: center; transition: var(--transition);">
-                        <i class="fas fa-tools"
+                    <div class="service-card reveal"
+                        style="background: white; padding: 50px 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); text-align: center; transition: var(--transition); border-top: 5px solid transparent; position: relative; overflow: hidden;">
+                        <i class="fas fa-shield-alt"
                             style="font-size: 3rem; color: var(--primary-color); margin-bottom: 20px;"></i>
-                        <h3 style="margin-bottom: 15px;">Maintenance</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 20px;">Ongoing support to keep your website
-                            fresh and functional.</p>
-                        <a href="services.html" style="color: var(--primary-color); font-weight: 600;">Explore More
+                        <h3 style="margin-bottom: 15px;">Security & Support</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">Enterprise-grade security measures to
+                            protect your website and customer data 24/7.</p>
+                        <a href="services.html" style="color: var(--primary-color); font-weight: 700;">Explore More
                             &rarr;</a>
                     </div>
                 </div>
