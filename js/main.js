@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mobile Menu Toggle logic (already exists in CSS for basic hiding, but let's ensure functionality)
+    // Mobile Menu Toggle logic
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -76,49 +76,50 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-    });
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
     }
 
-// Back to Top Button Logic
-const backToTop = document.createElement('div');
-backToTop.id = 'back-to-top';
-backToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
-document.body.appendChild(backToTop);
+    // Back to Top Button Logic
+    const backToTop = document.createElement('div');
+    backToTop.id = 'back-to-top';
+    backToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    document.body.appendChild(backToTop);
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-        backToTop.classList.add('show');
-    } else {
-        backToTop.classList.remove('show');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Newsletter Form Handler
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input').value;
+            alert(`Thank you for subscribing, ${email}! You'll receive our next web tip soon.`);
+            newsletterForm.reset();
+        });
+    }
+
+    // Contact Form Handler
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Your inquiry has been sent successfully. We will get back to you within 24 hours!');
+            contactForm.reset();
+        });
     }
 });
-
-backToTop.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Newsletter Form Handler
-const newsletterForm = document.getElementById('newsletter-form');
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = newsletterForm.querySelector('input').value;
-        alert(`Thank you for subscribing, ${email}! You'll receive our next web tip soon.`);
-        newsletterForm.reset();
-    });
-}
-
-// Contact Form Handler
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Your inquiry has been sent successfully. We will get back to you within 24 hours!');
-        contactForm.reset();
-    });
-}
-});
-
