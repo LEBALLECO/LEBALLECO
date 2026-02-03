@@ -6,11 +6,9 @@ class ChatWidget {
         this.userProfilePic = localStorage.getItem('chatUserProfilePic') || null;
         this.userName = localStorage.getItem('chatUserName') || 'You';
 
-        // AI Configuration - Google Gemini API
-        // Get your free API key from: https://aistudio.google.com/app/apikey
-        this.GEMINI_API_KEY = 'AIzaSyCu7KykEdD1vHE8T2hsYs6G1-Ed_jcqMSs'; // Gemini API key
-        this.GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
-        this.aiEnabled = this.GEMINI_API_KEY && this.GEMINI_API_KEY !== 'YOUR_GEMINI_API_KEY_HERE';
+        // AI Configuration - Using Hugging Face Free Inference
+        this.aiEnabled = true;
+        this.HF_API_URL = 'https://api-inference.huggingface.co/models/microsoft/Phi-3-mini-4k-instruct';
 
         this.init();
     }
@@ -508,20 +506,17 @@ Our unique value: Risk-free pricing - clients only pay when 100% satisfied.
 
 Keep responses concise (2-3 sentences), friendly, and professional. If asked about pricing or services in detail, suggest they use the quick reply buttons or contact us directly.`;
 
-            const response = await fetch(`${this.GEMINI_API_URL}?key=${this.GEMINI_API_KEY}`, {
+            const response = await fetch(this.HF_API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    contents: [{
-                        parts: [{
-                            text: `${context}\n\nUser question: ${userMessage}\n\nProvide a helpful, concise response:`
-                        }]
-                    }],
-                    generationConfig: {
+                    inputs: `<|system|>\n${context}<|end|>\n<|user|>\n${userMessage}<|end|>\n<|assistant|>`,
+                    parameters: {
+                        max_new_tokens: 150,
                         temperature: 0.7,
-                        maxOutputTokens: 200,
+                        return_full_text: false
                     }
                 })
             });
@@ -532,13 +527,13 @@ Keep responses concise (2-3 sentences), friendly, and professional. If asked abo
 
             const data = await response.json();
 
-            if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-                return data.candidates[0].content.parts[0].text;
+            if (data && data[0] && data[0].generated_text) {
+                return data[0].generated_text.trim();
             }
 
             return null;
         } catch (error) {
-            console.error('Gemini API Error:', error);
+            console.error('Inference API Error:', error);
             return null;
         }
     }
