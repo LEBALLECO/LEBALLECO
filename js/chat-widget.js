@@ -1,10 +1,17 @@
-// Live Chat Widget JavaScript
+// Live Chat Widget JavaScript with AI Integration
 class ChatWidget {
     constructor() {
         this.isOpen = false;
         this.messages = [];
         this.userProfilePic = localStorage.getItem('chatUserProfilePic') || null;
         this.userName = localStorage.getItem('chatUserName') || 'You';
+
+        // AI Configuration - Google Gemini API
+        // Get your free API key from: https://aistudio.google.com/app/apikey
+        this.GEMINI_API_KEY = 'AIzaSyCu7KykEdD1vHE8T2hsYs6G1-Ed_jcqMSs'; // Gemini API key
+        this.GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
+        this.aiEnabled = this.GEMINI_API_KEY && this.GEMINI_API_KEY !== 'YOUR_GEMINI_API_KEY_HERE';
+
         this.init();
     }
 
@@ -435,23 +442,44 @@ class ChatWidget {
         }, 1500);
     }
 
-    processUserMessage(message) {
+    async processUserMessage(message) {
         const lowerMessage = message.toLowerCase();
 
+        // Check for specific quick actions first
         if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('pricing')) {
             this.showPricing();
-        } else if (lowerMessage.includes('service') || lowerMessage.includes('what do you')) {
+            return;
+        } else if (lowerMessage.includes('service') && lowerMessage.includes('what')) {
             this.showServices();
-        } else if (lowerMessage.includes('consult') || lowerMessage.includes('meeting') || lowerMessage.includes('talk')) {
+            return;
+        } else if (lowerMessage.includes('consult') || lowerMessage.includes('meeting') || lowerMessage.includes('book')) {
             this.showConsultation();
-        } else if (lowerMessage.includes('help') || lowerMessage.includes('how')) {
-            this.showHelp();
-        } else if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+            return;
+        }
+
+        // Try AI response if enabled
+        if (this.aiEnabled) {
+            try {
+                const aiResponse = await this.getAIResponse(message);
+                if (aiResponse) {
+                    this.addBotMessage(`<p>${aiResponse}</p>`);
+                    setTimeout(() => this.showQuickReplies(), 500);
+                    return;
+                }
+            } catch (error) {
+                console.log('AI response failed, using fallback:', error);
+            }
+        }
+
+        // Fallback to predefined responses
+        if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
             this.addBotMessage(`
                 <p>Hello! 👋 Thanks for reaching out to LEBALLECO!</p>
                 <p>I'm here to help you with information about our web design, branding, and maintenance services.</p>
             `);
             setTimeout(() => this.showQuickReplies(), 500);
+        } else if (lowerMessage.includes('help') || lowerMessage.includes('how')) {
+            this.showHelp();
         } else {
             this.addBotMessage(`
                 <p>Thanks for your message! I'd be happy to help you with that.</p>
@@ -463,6 +491,55 @@ class ChatWidget {
                 </div>
             `);
             setTimeout(() => this.showQuickReplies(), 500);
+        }
+    }
+
+    async getAIResponse(userMessage) {
+        try {
+            // Context about LEBALLECO for AI
+            const context = `You are a helpful customer support assistant for LEBALLECO, a web design and branding agency. 
+            
+Our services include:
+- Web Design & Development (from $1,500/project): Custom responsive design, SEO optimized, mobile-friendly
+- Brand Identity Design (from $800/project): Logo design, color palette, brand guidelines
+- Website Support & Maintenance (from $200/month): Regular updates, security monitoring, performance optimization
+
+Our unique value: Risk-free pricing - clients only pay when 100% satisfied.
+
+Keep responses concise (2-3 sentences), friendly, and professional. If asked about pricing or services in detail, suggest they use the quick reply buttons or contact us directly.`;
+
+            const response = await fetch(`${this.GEMINI_API_URL}?key=${this.GEMINI_API_KEY}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{
+                            text: `${context}\n\nUser question: ${userMessage}\n\nProvide a helpful, concise response:`
+                        }]
+                    }],
+                    generationConfig: {
+                        temperature: 0.7,
+                        maxOutputTokens: 200,
+                    }
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`API error: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+                return data.candidates[0].content.parts[0].text;
+            }
+
+            return null;
+        } catch (error) {
+            console.error('Gemini API Error:', error);
+            return null;
         }
     }
 
